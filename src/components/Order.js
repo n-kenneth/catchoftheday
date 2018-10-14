@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { formatPrice } from "../helpers";
+import PropTypes from "prop-types";
 
 class Order extends Component {
+  static propTypes = {
+    order: PropTypes.object,
+    fish: PropTypes.shape({
+      name: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+      desc: PropTypes.string,
+      status: PropTypes.string
+    })
+  };
+
   renderOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
